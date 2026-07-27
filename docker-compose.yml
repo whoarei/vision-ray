@@ -1,0 +1,18 @@
+services:
+  backend:
+    build: ./backend
+    container_name: visionray-backend
+    volumes:
+      - ./models:/app/models:ro
+    expose:
+      - "8000"
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: visionray-frontend
+    ports:
+      - "8088:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
