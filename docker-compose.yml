@@ -14,7 +14,7 @@ services:
     ports:
       - "8088:80"
     volumes:
-      - ./frontend/public/samples:/usr/share/nginx/html/samples:ro
+      - ./samples:/usr/share/nginx/html/samples:ro
     depends_on:
       - backend
     restart: unless-stopped
