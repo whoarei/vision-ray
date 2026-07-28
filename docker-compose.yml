@@ -4,6 +4,9 @@ services:
     container_name: visionray-backend
     volumes:
       - ./models:/app/models:ro
+      - ./logs:/app/logs
+    environment:
+      - ACCESS_LOG_DIR=/app/logs
     expose:
       - "8000"
     restart: unless-stopped
